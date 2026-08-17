@@ -1,6 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import CambiarPasswordForm from "@/app/components/CambiarPasswordForm";
 
 export default function DashboardPage() {
     const [user, setUser] = useState<{ id: string | number; username: string; name: string } | null>(null);    const [loading, setLoading] = useState(true);
@@ -38,6 +39,7 @@ export default function DashboardPage() {
         <main className="p-8 text-white">
             <h1 className="text-2xl font-bold">Bienvenido al Panel (Seguro con JWT)</h1>
             <p>Hola, {user.username}. Has entrado correctamente mediante tu Cookie HTTP-only.</p>
+            <CambiarPasswordForm/>
             <button
                 onClick={async () => {
                     // Llamamos a la API de logout para borrar la cookie
